@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+    style(type='text/css').         
+        body {
+            background: rgb(230,236,240);
+            font-family: 'Asap', sans-serif;
+            font-family: 'Roboto', sans-serif;
+        
+        }
+
+        .tweetWrap {
+            max-width:490px;
+            background: white;
+            margin: 0 auto;
+            margin-top: 50px;
+            border-radius:3px;
+            padding: 30px;
+            border-bottom: 1px solid rgb(230,236,240);
+            border-top: 1px solid rgb(230,236,240);
+        }
+        
+        .tweetHeader {
+            display: flex;
+            align-items:flex-start;
+            font-size:14px;
+        }
+        .tweetHeaderInfo {
+            font-weight:bold;
+        }
+        .tweetHeaderInfo span {
+            color:rgb(101,119,134);
+            font-weight:normal;
+            margin-left: 5px;
+        }
+        .tweetHeadernfo p {
+            font-weight:normal;
+            margin-top: 5px;
+            
+        }
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script.
+      window.setInterval(function () {
+          $.ajax({url: "/tweets", success: function(result){
+      $("body").html(result);
+      }});
+      }, 1000);
+    body
+        each tweet, index in tweets
+            div.tweetWrap
+                div.tweetHeader
+                    div.tweetHeaderInfo=tweet.user.name
+                        span="@"+tweet.user.screen_name
+                        p=tweet.text
