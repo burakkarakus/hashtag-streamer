@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "dev": "ts-node ./lib/server.ts",
-    "start": "nodemon ./dist/server.js",
+    "build": "tsc -p .",
+    "dev": "ts-node ./src/server.ts",
+    "start": "ts-node ./dist/server.js",
     "prod": "npm run build && npm run start"
   },
   "author": "bkarakus",
@@ -19,6 +19,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.4",
     "nodemon": "^2.0.2",
+    "pug": "^2.0.4",
     "tweets": "0.0.6"
   }
 }
