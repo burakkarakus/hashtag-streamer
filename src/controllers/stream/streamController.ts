@@ -28,7 +28,10 @@ class StreamController implements IControllerBase {
     }
 
     getTweets(req: Request, res: Response) {
-        console.log("hit get tweets", process.env.CONSUMER_KEY);
+        if (!req) {
+            throw new Error()
+        }
+
         try {
             stream.filter({ track: req.params.hashtag });
             stream.on('tweet', function (tweet) {

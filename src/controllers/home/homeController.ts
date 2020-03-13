@@ -16,7 +16,7 @@ class HomeController implements IControllerBase {
     }
 
     index = (req: Request, res: Response) => {
-        res.render('home/index', { success: true, method: 'GET' })
+        res.send({ success: true, method: 'GET' })
     }
 }
 
